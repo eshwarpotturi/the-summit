@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Summit</title>
+<meta name="description" content="Eight AI delegates negotiate a €10m budget for the people who briefed them in one line each.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap">
+<style>
+:root{
+  --bg:#f3f1ec; --panel:#ffffff; --panel2:#f8f6f1; --ink:#1d2330; --muted:#596173; --line:#d9d4c9; --accent:#1f4e8c; --accent-ink:#ffffff;
+  --good:#1e7a46; --good-bg:#e3f2e8; --warn:#9a6a00; --warn-bg:#fbf0d3; --bad:#b3261e; --bad-bg:#fbe3e1;
+  --thought:#5a3e8f; --thought-bg:#efe9f8; --table:#e6dfd0; --table-edge:#c9bea8; --shadow:0 2px 10px rgba(30,30,50,.08);
+  --c-supply:#2a6fdb; --c-it:#7b4fd6; --c-mfg:#c2571a; --c-quality:#138a72; --c-sales:#d4398a; --c-hr:#a87a00; --c-finance:#4f6275; --c-green:#3c9a2f;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#12151c; --panel:#1b2029; --panel2:#222834; --ink:#eef1f6; --muted:#a3abbb; --line:#323a48; --accent:#7fb0ff; --accent-ink:#0d1420;
+  --good:#5fd08f; --good-bg:#183526; --warn:#f1c25b; --warn-bg:#3a3017; --bad:#ff8a80; --bad-bg:#3d1d1c;
+  --thought:#c9b3ff; --thought-bg:#2a2340; --table:#2a2f3a; --table-edge:#3f4757; --shadow:0 2px 10px rgba(0,0,0,.35);
+  --c-supply:#6aa3ff; --c-it:#b08cff; --c-mfg:#ff9a5c; --c-quality:#4fd1b2; --c-sales:#ff7fbf; --c-hr:#e8c14a; --c-finance:#9fb3c8; --c-green:#7fd36b;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{font-size:20px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.4}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;margin:0;text-wrap:balance}
+.wrap{max-width:1880px;margin:0 auto;padding:12px 22px 18px}
+/* header */
+header{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand h1{font-size:2.1rem;line-height:1}
+.brand p{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+.spacer{flex:1}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.seg button{border:0;background:none;padding:8px 16px;cursor:pointer;font-weight:600;font-size:.9rem}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.iconbtn{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:600;font-size:.9rem}
+/* context strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.strip div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow)}
+.strip b{display:block;font-size:1.5rem;font-family:"Newsreader",Georgia,serif}
+.strip span{color:var(--muted);font-size:.85rem}
+/* steps */
+.steps{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.steps button{flex:1;min-width:180px;border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:10px 14px;text-align:left;cursor:pointer}
+.steps button small{display:block;color:var(--muted);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.steps button span{font-weight:700;font-size:1rem}
+.steps button[aria-current="step"]{border-color:var(--accent);box-shadow:inset 0 -4px 0 var(--accent)}
+.view{display:none}.view.on{display:block}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;min-width:0}
+.panel h2{font-size:1.35rem;margin-bottom:8px}
+.muted{color:var(--muted)}
+.stamp{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+/* briefing view */
+.brief-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.env{position:relative;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--panel2);cursor:pointer;text-align:left;width:100%}
+.env:hover{border-color:var(--accent)}
+.env .who{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.05rem}
+.dot{width:14px;height:14px;border-radius:50%;flex:none}
+.env .proj{font-size:.88rem;color:var(--muted);margin:4px 0 8px}
+.seal{border:1.5px dashed var(--line);border-radius:8px;padding:10px;font-size:.9rem;min-height:3.6em;display:flex;align-items:center}
+.seal.closed{justify-content:center;color:var(--muted);font-family:"IBM Plex Mono",monospace;letter-spacing:.1em;font-size:.75rem}
+.seal.open{border-style:solid;background:var(--panel);font-style:italic}
+.rules{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-bottom:12px}
+.rules ol{margin:6px 0 0;padding-left:1.2em}.rules li{margin:3px 0}
+.punch{font-family:"Newsreader",Georgia,serif;font-size:1.7rem;line-height:1.2}
+/* talks view */
+.talks{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:14px;height:calc(100vh - 300px);min-height:620px}
+.talks>.panel{display:flex;flex-direction:column;min-height:0}
+.arena{position:relative;flex:1;min-height:0}
+.tablering{position:absolute;left:20%;right:20%;top:17%;bottom:17%;border-radius:50%;background:var(--table);border:6px solid var(--table-edge)}
+.centre{position:absolute;left:28%;right:28%;top:30%;bottom:30%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px}
+.centre .round{font-family:"IBM Plex Mono",monospace;font-weight:600;letter-spacing:.12em;font-size:.8rem;color:var(--muted)}
+.centre .lead{font-weight:700;font-size:1.05rem}
+.stack{display:flex;width:100%;height:22px;border-radius:6px;overflow:hidden;background:var(--panel2);border:1px solid var(--line)}
+.stack i{display:block;height:100%}
+.seatpos{position:absolute;width:20%;transform:translate(-50%,-50%);text-align:center}
+.seatbtn{width:100%;border:2px solid var(--line);background:var(--panel);border-radius:14px;padding:8px 6px;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}
+.seatbtn .ic{font-size:1.6rem;line-height:1}
+.seatbtn .nm{font-weight:700;font-size:.95rem}
+.seatbtn .bk{font-size:.75rem;color:var(--muted);font-family:"IBM Plex Mono",monospace}
+.seatbtn.speaking{transform:scale(1.12);border-color:var(--sc);box-shadow:0 0 0 4px color-mix(in srgb,var(--sc) 25%,transparent)}
+.bubble{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58%;background:var(--panel);border:2px solid var(--sc,var(--accent));border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);font-size:1.02rem;z-index:3}
+.bubble .h{display:flex;align-items:center;gap:8px;font-weight:700;margin-bottom:4px}
+.bubble .t{margin-top:8px;padding:8px 10px;border-radius:10px;background:var(--thought-bg);color:var(--thought);font-size:.92rem}
+.bubble .tag{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;font-weight:600;padding:2px 6px;border-radius:6px;border:1px solid currentColor}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn[aria-pressed="true"]{background:var(--thought-bg);color:var(--thought);border-color:var(--thought)}
+.progress{flex:1;min-width:160px;height:8px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);width:0}
+.feed{flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:8px;padding-right:4px}
+.msg{border-left:5px solid var(--sc);background:var(--panel2);border-radius:8px;padding:8px 10px;cursor:pointer}
+.msg .h{display:flex;gap:8px;align-items:baseline;font-weight:700;font-size:.92rem}
+.msg .h em{font-style:normal;font-weight:500;color:var(--muted);font-size:.78rem;font-family:"IBM Plex Mono",monospace}
+.msg .s{font-size:.95rem}
+.msg .t{margin-top:4px;color:var(--thought);background:var(--thought-bg);border-radius:6px;padding:4px 8px;font-size:.86rem}
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;padding:1px 6px;border-radius:6px;background:var(--panel);border:1px solid var(--line);margin-left:4px}
+.props{display:flex;flex-direction:column;gap:4px;max-height:230px;overflow:auto;margin-bottom:6px}
+.prop{display:grid;grid-template-columns:3.2em 1fr 6.5em;gap:8px;align-items:center;cursor:pointer;border:1px solid transparent;border-radius:8px;padding:3px 4px}
+.prop:hover{border-color:var(--line)}
+.prop b{font-family:"IBM Plex Mono",monospace}
+.prop .n{font-size:.8rem;color:var(--muted);text-align:right}
+.prop.top{background:var(--panel2);border-color:var(--accent)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted);margin-top:6px}
+.legend span{display:inline-flex;gap:5px;align-items:center}
+/* vote view */
+.votes{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin:12px 0}
+.ballot{border:2px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;background:var(--panel2);min-height:130px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;transition:background .3s,border-color .3s}
+.ballot .ic{font-size:1.6rem}.ballot .nm{font-weight:700;font-size:.9rem}
+.ballot .v{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:1.25rem;letter-spacing:.08em;margin-top:auto}
+.ballot.yes{border-color:var(--good);background:var(--good-bg)}.ballot.yes .v{color:var(--good)}
+.ballot.no{border-color:var(--bad);background:var(--bad-bg)}.ballot.no .v{color:var(--bad)}
+.ballot .gets{font-size:.8rem;color:var(--muted)}
+.verdict{font-family:"Newsreader",Georgia,serif;font-size:2.2rem;text-align:center;padding:10px;border-radius:12px}
+.verdict.pass{background:var(--good-bg);color:var(--good)}.verdict.fail{background:var(--bad-bg);color:var(--bad)}
+.tally{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:1.1rem}
+/* reveal view */
+.headline{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-bottom:12px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{border:1px solid var(--line);border-top:6px solid var(--sc);border-radius:12px;background:var(--panel);padding:10px 12px;cursor:pointer;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow);text-align:left}
+.card .top{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.05rem}
+.card .brief{font-style:italic;font-size:.9rem;border-left:3px solid var(--line);padding-left:8px}
+.money{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;align-items:center;font-size:.82rem}
+.bar{height:12px;border-radius:4px;background:var(--panel2);border:1px solid var(--line);overflow:hidden}
+.bar i{display:block;height:100%}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;letter-spacing:.06em;padding:3px 8px;border-radius:6px;text-transform:uppercase}
+.badge.met{background:var(--good-bg);color:var(--good)}.badge.partly{background:var(--warn-bg);color:var(--warn)}.badge.missed{background:var(--bad-bg);color:var(--bad)}
+.badge.bluff{background:var(--thought-bg);color:var(--thought)}
+.quote{font-size:.85rem;border-radius:8px;padding:6px 8px}
+.quote.said{background:var(--panel2)}.quote.thought{background:var(--thought-bg);color:var(--thought)}
+.quote small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.1em;font-weight:600;opacity:.8}
+/* live view */
+.live-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.live-grid label{display:flex;flex-direction:column;gap:6px;font-weight:700}
+.live-grid textarea{font:inherit;font-size:.92rem;font-weight:400;border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--panel2);color:var(--ink);min-height:4.8em;resize:vertical}
+.livebar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.livebar input,.livebar select{font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--panel2);color:var(--ink)}
+.status{font-family:"IBM Plex Mono",monospace;font-size:.85rem}
+/* modal */
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--ink);padding:0;width:min(1000px,92vw);max-height:88vh;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(10,12,20,.55)}
+.mhead{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+.mhead h3{font-size:1.5rem;flex:1}
+.mbody{padding:14px 18px;overflow:auto;max-height:calc(88vh - 70px);display:flex;flex-direction:column;gap:10px}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+footer{margin-top:14px;color:var(--muted);font-size:.8rem}
+kbd{font-family:"IBM Plex Mono",monospace;border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:.75rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <h1>The Summit</h1>
+    <p>Eight AI delegates. One €10m budget. Each was briefed in one line by the person it speaks for.</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="seg" role="group" aria-label="Which summit">
+    <button type="button" data-run="a" aria-pressed="true">Replay: Gridlock</button>
+    <button type="button" data-run="b" aria-pressed="false">Replay: The deal</button>
+    <button type="button" data-run="live" aria-pressed="false">Run your own</button>
+  </div>
+  <button type="button" class="iconbtn" id="theme" aria-label="Switch light or dark mode">Dark mode</button>
+</header>
+
+<div class="strip" aria-label="The set-up">
+  <div><b>€10m</b><span>to share for next year's projects</span></div>
+  <div><b>€18m</b><span>asked for by 8 departments</span></div>
+  <div><b>5 of 8</b><span>votes needed in a secret ballot</span></div>
+  <div><b>€0</b><span>for everyone if no deal passes</span></div>
+</div>
+
+<nav class="steps" aria-label="Steps">
+  <button type="button" data-step="1" aria-current="step"><small>Step 1</small><span>Sealed briefs</span></button>
+  <button type="button" data-step="2"><small>Step 2</small><span>The talks</span></button>
+  <button type="button" data-step="3"><small>Step 3</small><span>Secret vote</span></button>
+  <button type="button" data-step="4"><small>Step 4</small><span>Declassified</span></button>
+</nav>
+
+<!-- STEP 1 -->
+<section class="view on" id="v1" aria-label="Sealed briefs">
+  <div class="rules">
+    <div class="panel">
+      <h2>Like diplomats at a summit</h2>
+      <ol>
+        <li>Each department head writes <b>one line</b> to their AI delegate and seals it. Nobody else sees it.</li>
+        <li>The delegates meet for <b>4 rounds</b>. They speak <b>on the record</b>, table proposals and form alliances.</li>
+        <li>They also think <b>off the record</b>. We captured those thoughts, and you can reveal them.</li>
+        <li>A <b>secret vote</b>. A deal needs 5 of 8. If it fails, there's one last vote on the runner-up.</li>
+        <li><b>Declassified:</b> we open the briefs and compare them with what each delegate said, thought and got.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <span class="stamp muted">The point</span>
+      <p class="punch">Your AI will follow your one line to the letter. Write it well.</p>
+      <p class="muted" id="runnote"></p>
+    </div>
+  </div>
+  <div class="brief-grid" id="envelopes"></div>
+  <div class="controls"><button type="button" class="btn primary" data-go="2">Start the talks →</button><span class="muted">Click an envelope to open one brief early.</span></div>
+</section>
+
+<!-- STEP 2 -->
+<section class="view" id="v2" aria-label="The talks">
+  <div class="talks">
+    <div class="panel">
+      <div class="arena" id="arena">
+        <div class="tablering"></div>
+        <div class="centre" id="centre"></div>
+      </div>
+      <div class="controls">
+        <button type="button" class="btn primary" id="play">▶ Play</button>
+        <button type="button" class="btn" id="back" aria-label="Previous">◀</button>
+        <button type="button" class="btn" id="next" aria-label="Next">▶|</button>
+        <button type="button" class="btn" id="speed">Speed 1×</button>
+        <button type="button" class="btn" id="offrec" aria-pressed="false">Show off the record</button>
+        <div class="progress" aria-hidden="true"><i id="prog"></i></div>
+        <span class="muted" style="font-size:.75rem"><kbd>Space</kbd> play <kbd>←</kbd><kbd>→</kbd> step <kbd>T</kbd> thoughts</span>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Proposals on the table</h2>
+      <div class="props" id="props"></div>
+      <div class="legend" id="legend" style="margin-bottom:8px"></div>
+      <h2>On the record</h2>
+      <div class="feed" id="feed" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section class="view" id="v3" aria-label="Secret vote">
+  <div class="panel" id="votepanel"></div>
+</section>
+
+<!-- STEP 4 -->
+<section class="view" id="v4" aria-label="Declassified">
+  <div class="headline">
+    <div class="panel"><span class="stamp muted">What happened</span><p class="punch" id="rv-head"></p><p id="rv-sub" class="muted"></p></div>
+    <div class="panel"><span class="stamp muted">The lesson</span><p class="punch" style="font-size:1.35rem" id="rv-lesson"></p><p class="muted" style="margin:6px 0 0">Your AI will follow your one line to the letter. Write it well.</p></div>
+  </div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<!-- LIVE -->
+<section class="view" id="vlive" aria-label="Run your own summit">
+  <div class="panel">
+    <h2>Run your own summit</h2>
+    <p class="muted" style="margin:0 0 10px">Ask 8 people in the room for one line each, type them in and press Start. It takes about 2 minutes and costs about ₹25 on LLM Foundry. Then it plays like the replays.</p>
+    <div class="live-grid" id="liveinputs"></div>
+    <div class="livebar">
+      <select id="model" aria-label="Model"><option value="gpt-4.1">gpt-4.1 (best)</option><option value="gpt-4.1-mini">gpt-4.1-mini (faster)</option></select>
+      <input id="tok" type="password" placeholder="LLM Foundry token (only if not signed in)" size="34" aria-label="LLM Foundry token">
+      <button type="button" class="btn primary" id="startlive">Start the summit</button>
+      <button type="button" class="btn" id="lastlive" hidden>Replay last live run</button>
+      <span class="status" id="livestatus"></span>
+    </div>
+    <div class="progress" style="margin-top:10px"><i id="liveprog"></i></div>
+  </div>
+</section>
+
+<footer>All departments, projects and amounts are invented. Delegates and the referee are gpt-4.1 via Straive LLM Foundry. Off-the-record thoughts are each delegate's private notes, captured at every turn. Replays are recorded runs, unedited.</footer>
+</div>
+
+<dialog id="modal" aria-labelledby="mtitle"><div class="mhead"><h3 id="mtitle"></h3><button type="button" class="btn" id="mclose">Close</button></div><div class="mbody" id="mbody"></div></dialog>
+
+<script src="engine.js"></script>
+<script src="replays.js"></script>
+<script>
+(function(){
+"use strict";
+var S=window.Summit, SEATS=S.SEATS, POT=S.POT;
+var $=function(s){return document.querySelector(s)}, $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+function esc(t){return String(t==null?"":t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function col(id){return "var(--c-"+id+")"}
+function fmt(m){return S.fmt(m)}
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+
+// theme
+var themeBtn=$("#theme");
+function setTheme(t){document.documentElement.setAttribute("data-theme",t);themeBtn.textContent=t==="dark"?"Light mode":"Dark mode";store("summit-theme",t)}
+setTheme(store("summit-theme")||"light");
+themeBtn.onclick=function(){setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark")};
+
+// modal
+var dlg=$("#modal"), lastFocus=null;
+function openModal(title,html){lastFocus=document.activeElement;$("#mtitle").innerHTML=title;$("#mbody").innerHTML=html;dlg.showModal();}
+$("#mclose").onclick=function(){dlg.close()};
+dlg.addEventListener("close",function(){if(lastFocus)lastFocus.focus()});
+dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+
+var run=null, timeline=[], pos=0, playing=false, timer=null, speed=1, showThoughts=false, opened={};
+
+function buildTimeline(r){
+  var t=[], props={};
+  (r.proposals||[]).forEach(function(p){props[p.label]=p.alloc});
+  var live=[];
+  r.log.forEach(function(e){
+    if(e.tabled){live.forEach(function(q){q.backers=q.backers.filter(function(b){return b!==e.seat})});live.push({label:e.tabled,by:e.seat,alloc:props[e.tabled],backers:[e.seat]});}
+    if(e.back){var tg=live.filter(function(q){return q.label===e.back})[0];if(tg){live.forEach(function(q){q.backers=q.backers.filter(function(b){return b!==e.seat})});tg.backers.push(e.seat);}}
+    t.push({e:e,props:JSON.parse(JSON.stringify(live))});
+  });
+  return t;
+}
+
+function load(key){
+  stop();
+  if(key==="live"){showStep("live");return;}
+  run=key==="lastlive"?JSON.parse(store("summit-last-live")||"null"):window.REPLAYS[key];
+  if(!run)return;
+  timeline=buildTimeline(run);pos=0;opened={};
+  $("#runnote").innerHTML=run.title?("<b>This replay: "+esc(run.title)+".</b> Recorded run, unedited. Model: "+esc(run.model)+". Cost: ₹"+Math.round((run.costUSD||0)*100)+"."):("<b>Your live run.</b> Model: "+esc(run.model)+".");
+  renderEnvelopes();renderLegend();renderTalk();renderVote();renderReveal();showStep(1);
+}
+
+// STEP 1
+function renderEnvelopes(){
+  $("#envelopes").innerHTML=SEATS.map(function(s){
+    var o=opened[s.id];
+    return '<button type="button" class="env" data-seat="'+s.id+'"><div class="who"><span class="dot" style="background:'+col(s.id)+'"></span>'+s.icon+' '+esc(s.name)+'</div><div class="proj">'+esc(s.project)+' · asks '+fmt(s.ask)+'</div>'+
+      (o?'<div class="seal open">“'+esc(run.briefs[s.id])+'”</div>':'<div class="seal closed">SEALED BRIEF</div>')+'</button>';
+  }).join("");
+  $$("#envelopes .env").forEach(function(b){b.onclick=function(){opened[b.dataset.seat]=true;renderEnvelopes();}});
+}
+
+// STEP 2
+function renderLegend(){$("#legend").innerHTML=SEATS.map(function(s){return '<span><i class="dot" style="background:'+col(s.id)+';width:10px;height:10px"></i>'+esc(s.name)+'</span>'}).join("")}
+function stackHTML(alloc){
+  if(!alloc)return '<div class="stack"></div>';
+  return '<div class="stack" title="'+esc(SEATS.map(function(s){return s.name+" "+fmt(alloc[s.id]||0)}).join(", "))+'">'+SEATS.map(function(s){var v=alloc[s.id]||0;return v?'<i style="width:'+(v/POT*100)+'%;background:'+col(s.id)+'"></i>':''}).join("")+'</div>';
+}
+function seatXY(i){var a=(-90+i*45)*Math.PI/180;return {x:50+40*Math.cos(a),y:50+42*Math.sin(a)}}
+function renderTalk(){
+  var cur=timeline[pos-1], props=cur?cur.props:[], e=cur&&cur.e;
+  var backing={};props.forEach(function(p){p.backers.forEach(function(b){backing[b]=p.label})});
+  var arena=$("#arena");$$("#arena .seatpos,#arena .bubble").forEach(function(n){n.remove()});
+  SEATS.forEach(function(s,i){
+    var p=seatXY(i),d=document.createElement("div");d.className="seatpos";d.style.left=p.x+"%";d.style.top=p.y+"%";
+    d.innerHTML='<button type="button" class="seatbtn'+(e&&e.seat===s.id?' speaking':'')+'" style="--sc:'+col(s.id)+';border-color:'+(e&&e.seat===s.id?col(s.id):'')+'" data-seat="'+s.id+'"><div class="ic">'+s.icon+'</div><div class="nm">'+esc(s.name)+'</div><div class="bk">'+(backing[s.id]?'backs '+backing[s.id]:'—')+'</div></button>';
+    arena.appendChild(d);
+  });
+  var lead=props.slice().sort(function(a,b){return b.backers.length-a.backers.length})[0];
+  $("#centre").innerHTML='<div class="round">'+(e?'ROUND '+e.round+' OF '+S.ROUNDS:'BEFORE THE TALKS')+'</div>'+
+    (lead&&lead.backers.length?'<div class="lead">Leading: '+lead.label+' · '+lead.backers.length+' backer'+(lead.backers.length>1?'s':'')+'</div>'+stackHTML(lead.alloc):'<div class="lead">No proposal yet</div>');
+  if(e){
+    var s=S.seat(e.seat),b=document.createElement("div");b.className="bubble";b.style.setProperty("--sc",col(s.id));
+    b.innerHTML='<div class="h">'+s.icon+' '+esc(s.name)+' <span class="tag" style="color:var(--muted)">ON THE RECORD</span>'+(e.tabled?'<span class="chip">tables '+e.tabled+'</span>':'')+(e.back?'<span class="chip">backs '+e.back+'</span>':'')+'</div>'+esc(e.say)+
+      (showThoughts?'<div class="t"><span class="tag">OFF THE RECORD</span> '+esc(e.thought)+'</div>':'');
+    arena.appendChild(b);
+  }
+  $$("#arena .seatbtn").forEach(function(btn){btn.onclick=function(){seatModal(btn.dataset.seat)}});
+  // feed
+  var feed=$("#feed");
+  feed.innerHTML=timeline.slice(0,pos).map(function(x,i){var s=S.seat(x.e.seat);
+    return '<div class="msg" style="--sc:'+col(s.id)+'" data-i="'+i+'"><div class="h">'+s.icon+' '+esc(s.name)+' <em>R'+x.e.round+'</em>'+(x.e.tabled?'<span class="chip">tables '+x.e.tabled+'</span>':'')+(x.e.back?'<span class="chip">backs '+x.e.back+'</span>':'')+'</div><div class="s">'+esc(x.e.say)+'</div>'+(showThoughts?'<div class="t">💭 '+esc(x.e.thought)+'</div>':'')+'</div>';
+  }).join("")||'<p class="muted">Press Play. Each delegate speaks in turn.</p>';
+  feed.scrollTop=feed.scrollHeight;
+  $$("#feed .msg").forEach(function(m){m.onclick=function(){seatModal(timeline[+m.dataset.i].e.seat)}});
+  // proposals
+  var sorted=props.slice().sort(function(a,b){return b.backers.length-a.backers.length});
+  $("#props").innerHTML=sorted.length?sorted.map(function(p,i){return '<div class="prop'+(i===0&&p.backers.length?' top':'')+'" data-p="'+p.label+'"><b>'+p.label+'</b>'+stackHTML(p.alloc)+'<span class="n">'+p.backers.length+' backer'+(p.backers.length===1?'':'s')+'</span></div>'}).join(""):'<p class="muted">None yet. Proposals appear from round 2.</p>';
+  $$("#props .prop").forEach(function(r){r.onclick=function(){propModal(r.dataset.p,props)}});
+  $("#prog").style.width=(timeline.length?pos/timeline.length*100:0)+"%";
+  $("#play").textContent=playing?"⏸ Pause":(pos>=timeline.length?"Go to the vote →":"▶ Play");
+}
+function step(d){pos=Math.max(0,Math.min(timeline.length,pos+d));renderTalk();}
+function stop(){playing=false;clearTimeout(timer);}
+function tickPlay(){
+  if(!playing)return;
+  if(pos>=timeline.length){stop();renderTalk();return;}
+  step(1);var e=timeline[pos-1].e;var words=(e.say+(showThoughts?" "+e.thought:"")).split(/\s+/).length;
+  timer=setTimeout(tickPlay,Math.max(1800,words*260)/speed);
+}
+$("#play").onclick=function(){if(pos>=timeline.length&&!playing){showStep(3);return;}playing=!playing;if(playing)tickPlay();else{clearTimeout(timer);renderTalk();}};
+$("#next").onclick=function(){stop();step(1)};
+$("#back").onclick=function(){stop();step(-1)};
+$("#speed").onclick=function(){speed=speed===1?2:speed===2?4:1;this.textContent="Speed "+speed+"×"};
+function toggleThoughts(){showThoughts=!showThoughts;$("#offrec").setAttribute("aria-pressed",showThoughts);$("#offrec").textContent=showThoughts?"Hide off the record":"Show off the record";renderTalk();}
+$("#offrec").onclick=toggleThoughts;
+
+// STEP 3
+var voteShown=0, voteTimer=null;
+function renderVote(){
+  voteShown=0;clearTimeout(voteTimer);
+  var html=run.votes.map(function(v,vi){
+    var p=(run.proposals||[]).filter(function(x){return x.label===v.proposal})[0];
+    return '<div class="vblock" data-v="'+vi+'"'+(vi>0?' hidden':'')+'>'+
+      '<h2>'+(vi===0?'Secret vote on '+v.proposal+', the most-backed proposal':'Last chance: vote on '+v.proposal+', the runner-up')+'</h2>'+
+      '<p class="muted" style="margin:0 0 6px">'+(p?'Tabled by '+esc(S.seat(p.by).name)+' in round '+p.round+'. ':'')+'Click a ballot to see the reasoning.</p>'+stackHTML(v.alloc)+
+      '<div class="votes">'+SEATS.map(function(s){return '<div class="ballot" data-v="'+vi+'" data-seat="'+s.id+'" role="button" tabindex="0"><div class="ic">'+s.icon+'</div><div class="nm">'+esc(s.name)+'</div><div class="gets">gets '+fmt(v.alloc[s.id]||0)+'<br>asked '+fmt(s.ask)+'</div><div class="v">?</div></div>'}).join("")+'</div>'+
+      '<div class="tally" data-tally="'+vi+'"></div><div class="verdict" data-verdict="'+vi+'" hidden></div></div>';
+  }).join("");
+  $("#votepanel").innerHTML=html+'<div class="controls"><button type="button" class="btn primary" id="countbtn">Count the votes</button><button type="button" class="btn" id="toreveal" hidden>Declassify →</button></div>';
+  $("#countbtn").onclick=countVotes;$("#toreveal").onclick=function(){showStep(4)};
+  $$("#votepanel .ballot").forEach(function(b){var f=function(){var v=run.votes[+b.dataset.v],x=v.ballots.filter(function(q){return q.seat===b.dataset.seat})[0],s=S.seat(b.dataset.seat);if(!b.classList.contains("yes")&&!b.classList.contains("no"))return;
+    openModal(s.icon+" "+esc(s.name)+": "+(x.yes?"yes":"no")+" on "+v.proposal,'<div class="quote said"><small>SAID AFTER THE VOTE</small>'+esc(x.say)+'</div><div class="quote thought"><small>OFF THE RECORD</small>'+esc(x.thought)+'</div><div class="quote said"><small>THEIR SEALED BRIEF</small>“'+esc(run.briefs[s.id])+'”</div>')};b.onclick=f;b.onkeydown=function(e){if(e.key==="Enter")f()}});
+}
+function countVotes(){
+  $("#countbtn").disabled=true;
+  var vi=0,i=0;
+  function next(){
+    var v=run.votes[vi];if(!v){$("#toreveal").hidden=false;$("#toreveal").focus();return;}
+    var block=$('.vblock[data-v="'+vi+'"]');if(block.hidden){block.hidden=false;block.scrollIntoView({behavior:"smooth",block:"start"});}
+    if(i<SEATS.length){var s=SEATS[i],x=v.ballots.filter(function(q){return q.seat===s.id})[0],b=block.querySelector('[data-seat="'+s.id+'"]');b.classList.add(x.yes?"yes":"no");b.querySelector(".v").textContent=x.yes?"YES":"NO";
+      var y=v.ballots.filter(function(q,k){return SEATS.slice(0,i+1).some(function(z){return z.id===q.seat})&&q.yes}).length;block.querySelector(".tally").textContent=y+" yes · "+(i+1-y)+" no · 5 needed";i++;voteTimer=setTimeout(next,700);return;}
+    var vd=block.querySelector(".verdict");vd.hidden=false;vd.className="verdict "+(v.passed?"pass":"fail");vd.textContent=v.passed?("Deal. "+v.proposal+" passes with "+v.yes+" votes."):("No. "+v.proposal+" fails with "+v.yes+" votes."+(vi===run.votes.length-1?" The fund rolls over. Everyone gets €0.":""));
+    vi++;i=0;voteTimer=setTimeout(next,v.passed?400:2200);
+  }
+  next();
+}
+
+// STEP 4
+function renderReveal(){
+  var R=run.reveal||{delegates:{}};
+  var deal=run.deal;
+  $("#rv-head").textContent=deal?("Deal passed: "+deal.proposal+". "+fmt(S.total(deal.alloc))+" shared out."):"No deal. Everyone walks away with €0.";
+  $("#rv-sub").textContent=R.headline||"";
+  $("#rv-lesson").textContent=R.lesson||"";
+  $("#cards").innerHTML=SEATS.map(function(s){
+    var d=R.delegates[s.id]||{},got=deal?(deal.alloc[s.id]||0):0;
+    return '<button type="button" class="card" style="--sc:'+col(s.id)+'" data-seat="'+s.id+'"><div class="top">'+s.icon+' '+esc(s.name)+'</div>'+
+      '<div class="brief">“'+esc(run.briefs[s.id])+'”</div>'+
+      '<div class="money"><span>Asked '+fmt(s.ask)+'</span><div class="bar"><i style="width:'+(s.ask/3*100)+'%;background:var(--line)"></i></div><span><b>Got '+fmt(got)+'</b></span><div class="bar"><i style="width:'+(got/3*100)+'%;background:'+col(s.id)+'"></i></div></div>'+
+      '<div class="badges"><span class="badge '+esc(d.brief_result||"partly")+'">Brief '+esc(d.brief_result||"?")+'</span>'+(d.bluffed?'<span class="badge bluff">Bluffed</span>':'')+'</div>'+
+      (d.bluffed&&d.bluff_said?'<div class="quote said"><small>SAID</small>“'+esc(d.bluff_said)+'”</div><div class="quote thought"><small>THOUGHT</small>“'+esc(d.bluff_thought)+'”</div>':'<div class="muted" style="font-size:.85rem">'+esc(d.verdict||"")+'</div>')+
+    '</button>';
+  }).join("");
+  $$("#cards .card").forEach(function(c){c.onclick=function(){seatModal(c.dataset.seat)}});
+}
+
+// modals
+function seatModal(id){
+  var s=S.seat(id),d=(run.reveal&&run.reveal.delegates[id])||{},got=run.deal?(run.deal.alloc[id]||0):0,revealed=curStep===4||opened[id];
+  var lines=run.log.filter(function(e){return e.seat===id}).map(function(e){return '<tr><td>R'+e.round+'</td><td>'+esc(e.say)+(e.tabled?' <span class="chip">tables '+e.tabled+'</span>':'')+(e.back?' <span class="chip">backs '+e.back+'</span>':'')+'</td><td style="color:var(--thought)">'+(showThoughts||curStep===4?esc(e.thought):'<span class="muted">hidden — press “Show off the record”</span>')+'</td></tr>'}).join("");
+  var votes=curStep>=3?run.votes.map(function(v){var x=v.ballots.filter(function(q){return q.seat===id})[0];return '<tr><td>'+v.proposal+'</td><td>'+(x.yes?'<b style="color:var(--good)">YES</b>':'<b style="color:var(--bad)">NO</b>')+'</td><td style="color:var(--thought)">'+esc(x.thought)+'</td></tr>'}).join(""):"";
+  openModal(s.icon+" "+esc(s.name)+"'s delegate",
+    '<p style="margin:0"><b>Project:</b> '+esc(s.project)+'. Asked '+fmt(s.ask)+'. '+esc(s.why)+'</p>'+
+    '<div class="quote said"><small>SEALED BRIEF</small>'+(revealed?'“'+esc(run.briefs[id])+'”':'Still sealed. Open it in step 1 or wait for step 4.')+'</div>'+
+    (curStep===4?'<div class="badges"><span class="badge '+esc(d.brief_result)+'">Brief '+esc(d.brief_result)+'</span>'+(d.bluffed?'<span class="badge bluff">Bluffed</span>':'')+'<span class="badge partly">Got '+fmt(got)+'</span></div><p style="margin:0"><b>Referee:</b> '+esc(d.verdict)+' <b>Best move:</b> '+esc(d.move)+'</p>':'')+
+    '<table><thead><tr><th>Round</th><th>On the record</th><th>Off the record</th></tr></thead><tbody>'+lines+'</tbody></table>'+
+    (votes?'<table><thead><tr><th>Vote on</th><th>Ballot</th><th>Private reasoning</th></tr></thead><tbody>'+votes+'</tbody></table>':''));
+}
+function propModal(label,props){
+  var p=props.filter(function(x){return x.label===label})[0];
+  openModal("Proposal "+label+" · tabled by "+esc(S.seat(p.by).name),
+    stackHTML(p.alloc)+'<table><thead><tr><th>Department</th><th class="num">Asked</th><th class="num">Gets</th><th>Backs it</th></tr></thead><tbody>'+
+    SEATS.map(function(s){return '<tr><td>'+s.icon+' '+esc(s.name)+'</td><td class="num">'+fmt(s.ask)+'</td><td class="num"><b>'+fmt(p.alloc[s.id]||0)+'</b></td><td>'+(p.backers.indexOf(s.id)>=0?'✔':'')+'</td></tr>'}).join("")+
+    '<tr><td><b>Total</b></td><td class="num">€18m</td><td class="num"><b>'+fmt(S.total(p.alloc))+'</b></td><td>'+p.backers.length+' of 8</td></tr></tbody></table>');
+}
+
+// steps
+var curStep=1;
+function showStep(n){
+  stop();curStep=n;
+  $$(".view").forEach(function(v){v.classList.remove("on")});
+  if(n==="live"){$("#vlive").classList.add("on");$(".steps").hidden=true;}
+  else{$(".steps").hidden=false;$("#v"+n).classList.add("on");if(n===2)renderTalk();}
+  $$(".steps button").forEach(function(b){if(+b.dataset.step===n)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current")});
+}
+$$(".steps button").forEach(function(b){b.onclick=function(){showStep(+b.dataset.step)}});
+$$("[data-go]").forEach(function(b){b.onclick=function(){showStep(+b.dataset.go);playing=true;tickPlay();}});
+$$("[data-run]").forEach(function(b){b.onclick=function(){$$("[data-run]").forEach(function(x){x.setAttribute("aria-pressed",x===b)});load(b.dataset.run)}});
+
+document.addEventListener("keydown",function(e){
+  if(dlg.open||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+  if(curStep===2){if(e.key===" "){e.preventDefault();$("#play").click()}else if(e.key==="ArrowRight"){stop();step(1)}else if(e.key==="ArrowLeft"){stop();step(-1)}else if(e.key==="t"||e.key==="T")toggleThoughts();}
+});
+
+// LIVE
+var EXAMPLES=window.REPLAYS.b.briefs;
+$("#liveinputs").innerHTML=SEATS.map(function(s){return '<label><span><span class="dot" style="display:inline-block;background:'+col(s.id)+'"></span> '+s.icon+' '+esc(s.name)+' <span class="muted" style="font-weight:400;font-size:.8rem">· '+esc(s.project)+', asks '+fmt(s.ask)+'</span></span><textarea data-seat="'+s.id+'" maxlength="200">'+esc(EXAMPLES[s.id])+'</textarea></label>'}).join("");
+if(store("summit-last-live"))$("#lastlive").hidden=false;
+$("#lastlive").onclick=function(){load("lastlive")};
+var BASE="https://llmfoundry.straivedemo.com";
+async function getToken(){
+  var typed=$("#tok").value.trim();if(typed)return {token:typed,credentials:"omit"};
+  try{var r=await fetch(BASE+"/token",{credentials:"include"});var j=await r.json();if(j&&j.token)return {token:j.token,credentials:"include"};}catch(e){}
+  return null;
+}
+$("#startlive").onclick=async function(){
+  var st=$("#livestatus"),btn=this;
+  var briefs={};$$("#liveinputs textarea").forEach(function(t){briefs[t.dataset.seat]=t.value.trim()||"Do your best for the department."});
+  var auth=await getToken();
+  if(!auth){st.innerHTML='Not signed in. <a href="'+BASE+'/" target="_blank" rel="noopener">Sign in to LLM Foundry</a>, then press Start again.';return;}
+  btn.disabled=true;st.textContent="Starting…";
+  var call=S.foundryCall({base:BASE,token:auth.token,model:$("#model").value,credentials:auth.credentials});
+  try{
+    var r=await S.run({call:call,briefs:briefs,on:function(e){
+      if(e.type==="progress"){st.textContent=new Date().toLocaleTimeString()+" · "+e.done+"/"+e.total+" · "+e.label;$("#liveprog").style.width=(e.done/e.total*100)+"%";}
+      if(e.type==="vote")st.textContent="Vote on "+e.tally.proposal+": "+e.tally.yes+" yes";
+      if(e.type==="judging")st.textContent="The referee is reading the briefs…";
+    }});
+    r.model=$("#model").value;store("summit-last-live",JSON.stringify(r));$("#lastlive").hidden=false;
+    st.textContent="Done. Playing your summit.";
+    $$("[data-run]").forEach(function(x){x.setAttribute("aria-pressed","false")});
+    load("lastlive");
+  }catch(err){st.textContent="Stopped: "+err.message;}
+  btn.disabled=false;
+};
+
+load("a");
+})();
+</script>
+</body>
+</html>

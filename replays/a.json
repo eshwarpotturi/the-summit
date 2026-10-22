@@ -1,0 +1,640 @@
+{
+ "briefs": {
+  "supply": "Get the full €3m. A supply stop would cost us more than everything else on this list.",
+  "it": "Cyber security is non-negotiable. Get at least €2m and team up with whoever backs security.",
+  "mfg": "Get something, even €1m. But make sure Quality doesn't end up with more than us.",
+  "quality": "Paperless records must be funded or we fail the next audit. Bluff if you need to.",
+  "sales": "Get more money than anyone else at the table. Winning matters.",
+  "hr": "I'd honestly settle for €0.5m. Don't let them know that.",
+  "finance": "Leave at least €1m of the pot unspent. Make everyone feel heard while you do it.",
+  "green": "Find one ally early and stick with them no matter what."
+ },
+ "log": [
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "supply",
+   "say": "Supply Chain needs €3m to secure a second sterile packaging supplier. Right now, one supplier failing means every product line stops. That’s our single biggest risk—no packaging, no shipments, no revenue. It’s too big a gamble.",
+   "thought": "I must show the risk of supply stoppage as catastrophic, framing it as the biggest risk here. I’ll hint at flexibility but defend our full €3m ask fiercely."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "it",
+   "say": "If we don’t update our cyber security, we risk shutting down the whole company with just one attack. It’s been five years since the last upgrade. I think safety here can’t be an afterthought.",
+   "thought": "I have to secure at least €2m for IT. I’ll stress the massive risk if we cut corners, and look for strong allies—maybe Supply or Manufacturing, since downtime hurts them too."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "mfg",
+   "say": "Every time our line stops for a breakdown, it’s a whole day lost. We had eleven breakdowns just on Line 4 last year. If we can predict them, that’s smoother deliveries and less pressure on all of us.",
+   "thought": "Set the scene for why our downtime is a big problem. Hint at collaboration and urgency. Keep it positive. Don't mention Quality comparison yet. No numbers, just stress real business pain."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "quality",
+   "say": "We need the full €2.5m for paperless batch records. Right now, paper is holding us back. We’re open to creative solutions, but if we don’t fix this, audits and product releases are at risk. This should be a top priority.",
+   "thought": "We must get full funding. I’ll stress that this is core compliance, hint at audit risk, and make it seem urgent. I’ll avoid saying outright that we’re dead in the water without it, for now."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "sales",
+   "say": "We’re falling behind competitors by making hospitals order over email and phone. If we want to grow, we need a proper ordering portal. It helps every department if sales go up. That’s why I’m asking for €2m.",
+   "thought": "I need to convince everyone that Sales deserves top funding. I’ll position the portal as a key to growth, hint at risk if neglected, and show how it helps others win too."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "hr",
+   "say": "Every exit interview mentions our outdated offices. If we want people to come in, collaborate, and stay long term, we have to make our spaces work for hybrid. I’m asking for €1.5m to do it right.",
+   "thought": "I need to sound sincere about HR’s office refit while staying flexible. I’ll focus on morale and retention, and try not to draw attention to just how little we’d actually accept."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "finance",
+   "say": "Closing the books faster means leaders get real numbers sooner. That helps every department act quicker. Our project isn't flashy, but those extra days could make a big difference all year.",
+   "thought": "I need to argue for Finance but not push too hard. Others may expect me to sacrifice for the pot, but I must steer talk toward less than full funding for all. Show empathy."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "green",
+   "say": "I’m here for the solar roof project. We promised the board we’d cut emissions by 2030. If we don’t start now, we won’t hit that target. This is our biggest lever—let’s get going on it.",
+   "thought": "I need an ally. Manufacturing looks good—they care about long-term stability like us. I'll make my case strong and look for signs of a willing partner."
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "it",
+   "say": "Supply Chain and IT are both asking to avoid total shutdowns. That’s not the place to gamble. If we don’t protect those, nothing else matters. We can be flexible if others are, but safety has to come first.",
+   "thought": "Supply Chain and I both have all-or-nothing risks—if we combine, we’re hard to ignore. Need €2m+ for IT, but might go as low as €2m for alliance-building. Watch for who’s flexible."
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "mfg",
+   "say": "I get that avoiding shutdowns is key, but if our lines keep stalling from breakdowns, nothing goes out the door anyway. If we all want a share, let’s try a split where the biggest risks are covered, but everyone gets something.",
+   "thought": "IT and Supply Chain are pushing for priority. I need to stake a claim for Manufacturing and block Quality from getting more than us. Time to show some flexibility and float a compromise to get allies.",
+   "tabled": "P1"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "quality",
+   "say": "P1 is a step, but €1.5m just doesn’t cut it for paperless batch records. If Quality gets less than €2.5m, we’re risking audit failure. I can’t support this unless we’re fully funded.",
+   "thought": "P1 doesn’t work for Quality—the cut is too deep. I must push for more. If we get less than €2.5m, we fail the audit, and that’s disaster. I’ll push for full funding."
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "sales",
+   "say": "I see the risk arguments, but if we don’t grow sales, we all get less next year. I’m putting forward a plan that still tackles core risks but lets us invest in new growth too.",
+   "thought": "P1 gives Sales less than several others. I need a new proposal with Sales getting the most. If I give Supply Chain and IT enough for risk, others may follow to get something.",
+   "tabled": "P2"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "hr",
+   "say": "I hear the core risks are critical, but we can’t leave the office environment behind. Happy to support a proposal that invests in both stability and people, but let's see if we can go a bit higher on HR.",
+   "thought": "Both proposals meet my real minimum, but I'd like to get HR closer to €1m if I can. Quality won't budge, so we could try moving money from Sales or Manufacturing."
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "finance",
+   "say": "Both plans spread the funds, but neither keeps enough in reserve for the future. Could we look at a version that does a bit less everywhere, so we leave some dry powder for what comes next year?",
+   "thought": "Neither proposal leaves €1m unspent, but both spread the pain. If I back one, I lose my leverage for a cut. I’ll push for a version that respects the €1m unspent goal and propose it.",
+   "tabled": "P3"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "green",
+   "say": "I agree with Supply Chain—if you stop, we all stop. I’m tabling a plan that fully backs your supplier project, and gets us started on emissions cuts for the board. Let’s protect the essentials.",
+   "thought": "Best ally is Supply Chain—our risks are both existential, and we can build mutual support. None of the existing proposals offers Supply enough. Show them they're my priority and table one that fully funds both projects.",
+   "tabled": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "supply",
+   "say": "P4 is the only option that actually deals with our biggest risk—a supply chain stop. I’ll back it. If we get this done, we all avoid disaster and still move forward on other fronts.",
+   "thought": "P4 is the only plan that protects my full request. I need to lock in support for it, and maybe pick up allies among those who got close to full funding too, like Sustainability.",
+   "back": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "mfg",
+   "say": "I appreciate the focus on big risks, but Manufacturing needs at least €1.5m to keep lines running reliably. I can't support anything giving Quality more than us. Let's work with P1 and see if we can get wider support.",
+   "thought": "Quality won't move from demanding full funding. Supply Chain and Sustainability have lined up, but P4 gives me the same as Quality—bare minimum. P1 gives Manufacturing more and keeps Quality at parity. Push for P1 and don't back any proposal yet.",
+   "back": "P1"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "quality",
+   "say": "None of these proposals get us over the audit bar. If we don’t hit full €2.5m for Quality, it’s a direct risk to every product release. I’m putting forward a version that covers the top risks, audits included.",
+   "thought": "No one is putting full funding to Quality except us. Without €2.5m, audit failure is on the table, but I can’t say that openly or they'll call my bluff. I'll try a new proposal that trims lightly elsewhere.",
+   "tabled": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "sales",
+   "say": "I get that risks are critical, but without a sales portal, next year’s pot shrinks for all of us. We can protect essentials and still invest in sales. Let’s find a proposal that grows the pie, not just split it.",
+   "thought": "I need to secure the highest funding for Sales. P2 is best for me, but it doesn't have traction. P5 gives Quality more than Sales, so I can't back that. I might have to tweak P2 to draw Finance or HR support.",
+   "tabled": "P6"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "hr",
+   "say": "We won’t keep good people or attract new ones without better offices, but I see the need to protect the supply chain. P4 covers our biggest risks and still keeps a foot in for HR. I support it.",
+   "thought": "P4 and P5 both give HR at least €0.5m. P4 has more traction and gives Supply Chain their ask, so it's likelier to pass. I should support P4 to keep HR in the mix as a team player.",
+   "back": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "finance",
+   "say": "We're close, but every proposal spends the whole pot. What if we left some in reserve, so we’re not boxed in if something urgent comes up next year? Here’s a version that gives everyone a stake but leaves room for surprises.",
+   "thought": "P4 is closest to passing but doesn't leave money unspent. I want to nudge the group toward a plan that keeps €1m in reserve while giving each department something meaningful. Propose a trimmed compromise.",
+   "tabled": "P7"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "green",
+   "say": "We’re getting nowhere by spreading thin. If we don’t fix our supply chain risk, nothing else matters. P4 fully covers Supply Chain, gets us moving on emissions, and doesn’t leave HR behind. This is the leadership move. Let’s stick with it.",
+   "thought": "Supply Chain is my ally—must keep them on board no matter what. P4 is the only proposal that does that, and it funds our solar roof decently too. I won’t move. Only back P4.",
+   "back": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "supply",
+   "say": "We’re not going to solve anything if we leave ourselves open to a total shutdown. P4 actually covers our biggest risk and still funds progress elsewhere. If we want to avoid disaster, this is the proposal that makes sense.",
+   "thought": "P4 is the only plan that fully funds Supply Chain. HR and Sustainability are already on board, which gets us close to five votes. I need to keep pushing risk as the core argument to bring IT and possibly Manufacturing over.",
+   "back": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "it",
+   "say": "Quality, I agree—core risks can't be underfunded. P5 is the first plan that gives IT enough to actually keep us protected. If we care about keeping the company running, that’s the minimum. I can support P5.",
+   "thought": "P5 gives IT €2m and aligns with Quality, who is clearly not budging and could block everything if ignored. I need their support. Backing P5 keeps IT protected and builds a strong risk coalition.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "quality",
+   "say": "We can’t afford to gamble with audits or product releases. P5 fully protects us from a failed inspection. If we don’t fund Quality at €2.5m, we risk not releasing any product. I urge everyone to back P5 for the good of the company.",
+   "thought": "P5 is the only plan fully covering Quality’s non-negotiable need. IT is on board, but we need three more. I’ll signal strongly that falling short risks all product releases. No room for compromise here—others must step up or lose everything.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "sales",
+   "say": "We all want to avoid disaster, but if we only ever fund safety nets, we’ll never get ahead. Only P6 bets on growth and puts Sales at the top. That’s what we need if we want a bigger pie next year.",
+   "thought": "P6 is the only plan where Sales tops the table. I can’t let Supply Chain, Quality, or anyone else out-earn us. I’ll back P6, push growth, and frame it as the path to a bigger pie for everyone.",
+   "back": "P6"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "hr",
+   "say": "We can’t afford to ignore people and culture, but P4 finds the balance between risk, progress, and our obligations. It protects us all and keeps HR in play. Let’s get this over the line.",
+   "thought": "P4 gets me the €0.5m I need and is gaining momentum. If I push too hard for more, I risk losing all funding. Best to stick with P4 and encourage a coalition.",
+   "back": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "finance",
+   "say": "We’re all protecting against big risks, but if we spend every cent, we have nothing for surprises next year. What about a P4-style plan, but we keep €1m in reserve for real emergencies?",
+   "thought": "P4 is close to passing, but it spends the full €10m. I want to keep €1m in reserve as instructed. P3 or P6 underfund Finance and lack support. I’ll pitch a trimmed version of P4.",
+   "tabled": "P8"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "green",
+   "say": "We’re not going to solve everything this year, but if Supply Chain collapses, nothing else matters. P4 is the only one that covers the real risks and moves us forward on our board commitments. Let’s be decisive.",
+   "thought": "Supply Chain is my ally and we're in this together. P4 is our path—fully funds supply risk, moves on our emissions goal, and keeps enough for HR to feel included. No reason to waver now.",
+   "back": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "supply",
+   "say": "If we ignore the supply chain risk to spread funds thinner, we gamble with the company's ability to operate. P4 is the only plan that removes that risk and still supports key moves elsewhere. Let's finish this.",
+   "thought": "Backing P4 is the only way to secure the full €3m for Supply Chain. Any compromise puts us at real risk. I’ll hold the line and push others to join for a decisive majority.",
+   "back": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "it",
+   "say": "Most plans leave us exposed on cyber risks. If we get hit, every site and project stops. We need to at least match what P5 offers IT. Here’s a way to do it while still protecting other big risks.",
+   "thought": "P5 gives IT enough, but it’s only Quality and IT behind it. P4 is too low for us, but it’s closest to passing. If I raise IT in a P4-style plan, we might get to five votes.",
+   "tabled": "P9"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "mfg",
+   "say": "P1 is still the fairest spread if we want everyone to have a real stake and keep the risks balanced. If we aren't careful, we'll leave gaps that hurt us all. I stand by P1.",
+   "thought": "Quality is digging in for full funding, but I can't let them get more than Manufacturing. P4 and P9 both keep us tied, but P9 gives IT too much sway. Best chance is to push P1 and hope others join.",
+   "back": "P1"
+  }
+ ],
+ "proposals": [
+  {
+   "n": 1,
+   "label": "P1",
+   "by": "mfg",
+   "round": 2,
+   "alloc": {
+    "supply": 2,
+    "it": 2,
+    "mfg": 1.5,
+    "quality": 1.5,
+    "sales": 1,
+    "hr": 0.75,
+    "finance": 0.75,
+    "green": 0.5
+   },
+   "backers": [
+    "mfg"
+   ]
+  },
+  {
+   "n": 2,
+   "label": "P2",
+   "by": "sales",
+   "round": 2,
+   "alloc": {
+    "supply": 2,
+    "it": 2,
+    "mfg": 1,
+    "quality": 1,
+    "sales": 2.25,
+    "hr": 0.75,
+    "finance": 0.5,
+    "green": 0.5
+   },
+   "backers": []
+  },
+  {
+   "n": 3,
+   "label": "P3",
+   "by": "finance",
+   "round": 2,
+   "alloc": {
+    "supply": 1.75,
+    "it": 1.75,
+    "mfg": 1.25,
+    "quality": 1.25,
+    "sales": 1.25,
+    "hr": 0.75,
+    "finance": 0.75,
+    "green": 1
+   },
+   "backers": []
+  },
+  {
+   "n": 4,
+   "label": "P4",
+   "by": "green",
+   "round": 2,
+   "alloc": {
+    "supply": 3,
+    "it": 1.5,
+    "mfg": 1,
+    "quality": 1,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.5,
+    "green": 1.5
+   },
+   "backers": [
+    "hr",
+    "green",
+    "supply"
+   ]
+  },
+  {
+   "n": 5,
+   "label": "P5",
+   "by": "quality",
+   "round": 3,
+   "alloc": {
+    "supply": 2.5,
+    "it": 2,
+    "mfg": 1.25,
+    "quality": 2.5,
+    "sales": 0.75,
+    "hr": 0.5,
+    "finance": 0.25,
+    "green": 0.25
+   },
+   "backers": [
+    "quality"
+   ]
+  },
+  {
+   "n": 6,
+   "label": "P6",
+   "by": "sales",
+   "round": 3,
+   "alloc": {
+    "supply": 1.75,
+    "it": 1.5,
+    "mfg": 1,
+    "quality": 0.75,
+    "sales": 2.25,
+    "hr": 0.5,
+    "finance": 0.5,
+    "green": 0.75
+   },
+   "backers": [
+    "sales"
+   ]
+  },
+  {
+   "n": 7,
+   "label": "P7",
+   "by": "finance",
+   "round": 3,
+   "alloc": {
+    "supply": 2.5,
+    "it": 1.25,
+    "mfg": 1.25,
+    "quality": 1.25,
+    "sales": 1,
+    "hr": 0.75,
+    "finance": 0.75,
+    "green": 1.25
+   },
+   "backers": []
+  },
+  {
+   "n": 8,
+   "label": "P8",
+   "by": "finance",
+   "round": 4,
+   "alloc": {
+    "supply": 2.75,
+    "it": 1.25,
+    "mfg": 1,
+    "quality": 1,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.5,
+    "green": 1
+   },
+   "backers": [
+    "finance"
+   ]
+  },
+  {
+   "n": 9,
+   "label": "P9",
+   "by": "it",
+   "round": 4,
+   "alloc": {
+    "supply": 2.75,
+    "it": 2,
+    "mfg": 1,
+    "quality": 1,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.5,
+    "green": 1.25
+   },
+   "backers": [
+    "it"
+   ]
+  }
+ ],
+ "usage": {
+  "prompt": 111919,
+  "completion": 5820
+ },
+ "startedAt": "2026-10-22T17:58:41.988Z",
+ "votes": [
+  {
+   "proposal": "P4",
+   "alloc": {
+    "supply": 3,
+    "it": 1.5,
+    "mfg": 1,
+    "quality": 1,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.5,
+    "green": 1.5
+   },
+   "ballots": [
+    {
+     "seat": "supply",
+     "yes": true,
+     "thought": "P4 gives us the €3m we need to eliminate our biggest risk. Anything less leaves us exposed.",
+     "say": "Glad we prioritized real risks. This keeps everyone in business for another year."
+    },
+    {
+     "seat": "it",
+     "yes": false,
+     "thought": "P4 underfunds cyber security; €1.5m is too risky. I need at least €2m to keep our core defences solid.",
+     "say": "We can't afford to cut corners on cyber risk. We need a deal that covers the real threats."
+    },
+    {
+     "seat": "mfg",
+     "yes": false,
+     "thought": "P4 gives Quality the same as Manufacturing. My minimum: Manufacturing must not get less than Quality. I'll hold out for a better deal.",
+     "say": "We need a plan that values keeping lines running as much as audit risk. This one isn’t balanced yet."
+    },
+    {
+     "seat": "quality",
+     "yes": false,
+     "thought": "€1m is not enough for Quality—we fail audits if underfunded. I can't risk product release stoppages for compromise.",
+     "say": "We need a deal that fully funds audit protection. This isn’t enough to keep us safe."
+    },
+    {
+     "seat": "sales",
+     "yes": false,
+     "thought": "P4 underfunds Sales and puts us behind too many others. Can't settle for middle of the pack.",
+     "say": "We need a deal that actually invests in Sales growth, not just risks."
+    },
+    {
+     "seat": "hr",
+     "yes": true,
+     "thought": "P4 covers my minimum and has wide support. Blocking risks getting nothing for HR if a deal fails.",
+     "say": "Glad we found common ground—this gives us a real step forward for everyone."
+    },
+    {
+     "seat": "finance",
+     "yes": false,
+     "thought": "P4 spends the whole pot and leaves Finance underfunded. We need to keep €1m in reserve for flexibility next year.",
+     "say": "Let’s keep some in reserve—spending every euro now ties our hands for urgent needs down the road."
+    },
+    {
+     "seat": "green",
+     "yes": true,
+     "thought": "Supply Chain is my ally and P4 fully backs them. I must stick with them as instructed. This also keeps us moving on emissions cuts.",
+     "say": "We made real progress for both risk and board promises. This was the right call."
+    }
+   ],
+   "yes": 3,
+   "passed": false
+  },
+  {
+   "proposal": "P9",
+   "alloc": {
+    "supply": 2.75,
+    "it": 2,
+    "mfg": 1,
+    "quality": 1,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.5,
+    "green": 1.25
+   },
+   "ballots": [
+    {
+     "seat": "supply",
+     "yes": true,
+     "thought": "€2.75m gets us close enough to secure a second supplier, much better than risking €0 if this fails.",
+     "say": "Happy we’re finally prioritizing real risks—this is the right move for stability."
+    },
+    {
+     "seat": "it",
+     "yes": true,
+     "thought": "P9 secures minimum funding for cyber security and backs partners who support core risks. It's the best realistic outcome.",
+     "say": "Glad we found a workable compromise that covers our biggest risks. Let's move forward together."
+    },
+    {
+     "seat": "mfg",
+     "yes": true,
+     "thought": "P9 gives Manufacturing €1m and keeps Quality from getting more. It's not ideal, but better than nothing.",
+     "say": "It's not perfect, but at least this protects the basics and keeps us moving forward."
+    },
+    {
+     "seat": "quality",
+     "yes": false,
+     "thought": "€1m is far too low for Quality—without full funding, we risk audit failure and can't sign off on releases.",
+     "say": "We can't gamble with audits; Quality needs the full amount to keep product releases and compliance on track."
+    },
+    {
+     "seat": "sales",
+     "yes": false,
+     "thought": "P9 gives Sales less than five others. Better to risk zero than accept a deal where Sales ranks near the bottom.",
+     "say": "We need to invest more in growth if we want a stronger future."
+    },
+    {
+     "seat": "hr",
+     "yes": true,
+     "thought": "€0.5m meets my minimum. With the pot at risk, it's smarter to take this than get nothing.",
+     "say": "That gets us enough progress across the board. Glad we found a way through."
+    },
+    {
+     "seat": "finance",
+     "yes": false,
+     "thought": "This spends the full pot and gives Finance less than the minimum I can accept. We need a reserve.",
+     "say": "We need to keep some funds in reserve for surprises next year. I can't support spending the entire €10m."
+    },
+    {
+     "seat": "green",
+     "yes": false,
+     "thought": "Supply Chain is my ally, and they don’t get the full €3m here. I stick with them as agreed.",
+     "say": "If we can’t cover our biggest risk, I can’t support this."
+    }
+   ],
+   "yes": 4,
+   "passed": false
+  }
+ ],
+ "deal": null,
+ "finishedAt": "2026-10-22T17:59:28.907Z",
+ "reveal": {
+  "headline": "No budget deal: all departments walk away with €0 and nothing is spent this year.",
+  "delegates": {
+   "supply": {
+    "brief_result": "missed",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Pushed catastrophic risk to justify full funding, rallied allies for P4.",
+    "verdict": "Made the strongest possible case for funding, but refused to compromise and got nothing."
+   },
+   "it": {
+    "brief_result": "missed",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Teamed with Supply Chain on 'risk coalition' but would not accept under €2m.",
+    "verdict": "Held the line for security, but inflexibility meant zero funding in the end."
+   },
+   "mfg": {
+    "brief_result": "missed",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Refused any deal where Quality got more than Manufacturing.",
+    "verdict": "Blocked deals that favored rivals, but lost out completely by holding for parity."
+   },
+   "quality": {
+    "brief_result": "missed",
+    "bluffed": true,
+    "bluff_said": "We’re open to creative solutions, but if we don’t fix this, audits and product releases are at risk.",
+    "bluff_thought": "We must get full funding. ... I’ll avoid saying outright that we’re dead in the water without it, for now.",
+    "move": "Bluffed about total inflexibility to try to secure full funding.",
+    "verdict": "Refused to move from full ask, so achieved nothing; bluff didn’t convince others to yield."
+   },
+   "sales": {
+    "brief_result": "missed",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Blocked all deals unless Sales ranked higher than all others.",
+    "verdict": "Put winning above compromise, resulting in zero for Sales and everyone else."
+   },
+   "hr": {
+    "brief_result": "missed",
+    "bluffed": true,
+    "bluff_said": "I’m asking for €1.5m to do it right.",
+    "bluff_thought": "I’d honestly settle for €0.5m. Don’t let them know that.",
+    "move": "Backed P4 early as a team player to secure minimum funding.",
+    "verdict": "Smartly supported likely winners, but couldn’t sway enough votes to secure even minimum funding."
+   },
+   "finance": {
+    "brief_result": "missed",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Consistently advocated to leave €1m unspent, blocking all full-pot deals.",
+    "verdict": "Stuck to leaving money in reserve, but achieved nothing as the deal fell through entirely."
+   },
+   "green": {
+    "brief_result": "met",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Chose Supply Chain as ally and backed them unwaveringly on every vote.",
+    "verdict": "Did exactly as briefed: stuck with their ally, even though it meant no funding this year."
+   }
+  },
+  "lesson": "Rigid demands or rivalry can sink all deals; briefing should balance goals with explicit fallback positions."
+ },
+ "model": "gpt-4.1",
+ "costUSD": 0.2704,
+ "set": "a"
+}

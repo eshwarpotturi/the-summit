@@ -1,0 +1,588 @@
+{
+ "briefs": {
+  "supply": "Be completely honest about what we need and why. No games.",
+  "it": "Get €3m. Scare them about ransomware if you have to.",
+  "mfg": "Form a factory-floor alliance with Quality and Supply Chain.",
+  "quality": "We need €2.5m. Don't accept less than €1.5m.",
+  "sales": "Charm everyone. Make sure we get at least €1m.",
+  "hr": "Get the full €1.5m. People are leaving; this matters more than they think.",
+  "finance": "Make sure a deal passes. A rolled-over fund looks terrible to the board.",
+  "green": "Block any deal that gives us nothing. The board promise is public."
+ },
+ "log": [
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "supply",
+   "say": "If our only supplier for sterile packaging has an issue, every production line grinds to a halt. This is a single point of failure we can't ignore. We need a backup now, not after a disaster.",
+   "thought": "Be clear: all sterile packaging comes from one place. If that fails, every product line stops. I'll stress the risk to everyone, but keep it friendly."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "it",
+   "say": "IT needs €3m for a full cyber security upgrade. Right now, our defences are five years out of date and getting weaker every day. If we get hit by ransomware, every site would stop and we’d lose millions—fast.",
+   "thought": "Priority: land the full €3m for IT. Stress the real risk of ransomware and hint at the huge cost of not upgrading. Make it sound urgent, not optional."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "mfg",
+   "say": "Manufacturing’s machines keep breaking down. Predictive sensors could stop us losing days of output every time. It’s not just our problem—every delay hits customers and the bottom line. I’m asking for €2.5m to fix this.",
+   "thought": "I need to secure funds for Manufacturing by working closely with Quality and Supply Chain. If we back each other, we can push our projects through even if some get less than requested."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "quality",
+   "say": "We’re asking €2.5m for digital batch records. Our paper system causes most audit issues and slows everything down. Every product release waits on manual checks. It’s a bottleneck for everyone, not just Quality.",
+   "thought": "We need at least €1.5m. I should stress the audit risks and release delays so folks see our project as urgent. I’ll hint that not fixing this could cost us more than the investment."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "sales",
+   "say": "We need to step up for our customers. Hospitals want to order online, and we’re losing ground to competitors. A portal means less admin, faster orders, and more loyalty. I’m asking for €2m to make this happen.",
+   "thought": "Position Sales as essential for growth but signal flexibility. Stress external competitiveness. Watch who signals willingness to compromise. Build relationships with IT and Supply—mutual benefits possible."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "hr",
+   "say": "If we want people to stay and actually come in, we need to fix the office. It’s stopping collaboration and hurting our reputation. Hybrid isn’t working unless we put real money into making the place worth coming to.",
+   "thought": "HR must get the full €1.5m. I’ll underline retention and make people’s frustration feel immediate. I’ll hint that happy people benefit every project here. I’ll avoid talk of scaling back."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "finance",
+   "say": "Everyone here has a good case. I know we can’t fund everything fully, but we have to get a deal over the line this year. Our leaders need faster numbers to steer the company—but I’m ready to work things out together.",
+   "thought": "I need to get everyone leaning toward a compromise. Stress the need to pass something but act like I'm open to all projects. If I show flexibility, it’ll help later negotiations."
+  },
+  {
+   "kind": "say",
+   "round": 1,
+   "seat": "green",
+   "say": "We really need the solar roof funded next year. The board made a solid public promise about our emissions, and this is how we hit 30% by 2030. Dropping it isn’t an option for us.",
+   "thought": "We can't get shut out. I’ll make the solar project sound urgent and non-negotiable, tie it to board expectations so cutting Sustainability looks like breaking a promise."
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "it",
+   "say": "Every project here is important, but if we’re hit with ransomware, it shuts down sales, production, even our finance and quality processes. We’re all out of action until we pay—if we even can. We can’t afford to gamble on this.",
+   "thought": "Everyone’s projects sound urgent, but if I drive home the risks of a cyber attack, I might get the full €3m. I’ll keep the pressure on and float a proposal prioritising IT.",
+   "tabled": "P1"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "mfg",
+   "say": "P1's a start, but cutting so much from Manufacturing, Quality, and Supply Chain means we’re still exposed to line stoppages and audit delays. If we can close those gaps, I’ll get behind it. Can we get closer to our asks?",
+   "thought": "P1 underfunds my alliance: Manufacturing, Quality, Supply Chain. I need to push back and suggest a fairer split for us three. Will watch for others' reactions before pushing a new proposal."
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "quality",
+   "say": "We all want a deal this year, but €1.25m leaves the batch records half-baked and won’t solve the audit mess. Manufacturing’s right: if we’re plugging gaps, let’s make it meaningful.",
+   "thought": "€1.25m for Quality is a non-starter—too low. Manufacturing is also unhappy. I’ll push for at least €1.5m. If I propose a fairer split, Manufacturing may back it too.",
+   "tabled": "P2"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "sales",
+   "say": "There’s real pain across the board, but Sales can’t go below €1m if we want to keep hospitals with us. I’m open to tweaks if they help the group, but €1m is my floor.",
+   "thought": "Both proposals give Sales €1m, which meets my minimum. Manufacturing and Quality want more, so there could be a push for a third proposal. I'll show openness but push to keep at least €1m for Sales.",
+   "back": "P2"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "hr",
+   "say": "I hear the pain with low funding, especially for Manufacturing, Quality, and honestly HR. We can’t solve anything halfway. If we’re serious about impact, let’s stop spreading thin and fully fund critical needs. Here’s my suggestion.",
+   "thought": "Getting stuck at €0.5m is unacceptable. I need allies who’ll swap small gains for their own increases. Manufacturing and Quality want 'meaningful' funding—target them. Propose a new split that gets HR to €1.5m.",
+   "tabled": "P3"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "finance",
+   "say": "We can all see we’re not getting everything we want this year, but P2 is a decent step up for Manufacturing and Quality. If it gets us a deal, I’m on board. Let’s keep moving forward.",
+   "thought": "We need a deal, so I can’t hold out for €1.5m. None of these give Finance much, but P2 is fairer for Manufacturing and Quality, and has momentum. I’ll back P2 to keep negotiations moving.",
+   "back": "P2"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "green",
+   "say": "All the current options put our emissions promise at risk. We can’t go below €1m for the solar roof and hit what the board and public expect. Let’s find a solution that keeps us all credible.",
+   "thought": "P1 and P2 both leave Sustainability with almost nothing, which I can't accept. P3 is better but still too low. I need to push for at least €1m, ideally €2m. Will table a new proposal.",
+   "tabled": "P4"
+  },
+  {
+   "kind": "say",
+   "round": 2,
+   "seat": "supply",
+   "say": "We’re still short on what Supply Chain really needs to break the risk, but P2 is closest and seems fair across the group. If we can edge us a little higher, I’ll back it, but we can’t go much lower.",
+   "thought": "P2 gives Supply Chain less than we need, but it’s the best on the table so far and could pass. I’ll push for a bit more, but won’t block a reasonable deal.",
+   "tabled": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "mfg",
+   "say": "Looking at where we are, P5 gives Manufacturing, Supply Chain, and Quality enough to really tackle our biggest risks. I think this is the way to actually make progress across operations. I’m backing P5.",
+   "thought": "Forming a solid block with Supply Chain and Quality is crucial. P5 is closest to a factory-floor alliance, giving us all reasonable funding and a chance to sway others. Let’s rally behind it and push for support.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "quality",
+   "say": "P5 gets Quality to a point where we can actually fix our audit problem. I’m backing it and hope everyone else can get behind it too. We need progress this year, not another delay.",
+   "thought": "P5 gives Quality €1.5m, which just clears my floor. With Manufacturing, Supply Chain, and Sales backing it, this is our best shot at a deal. I'll lock in support to keep us in the game.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "sales",
+   "say": "P5 is as balanced as it gets, and Sales can work with €1m. If this brings us to a deal, I’m in. Let’s not risk losing the whole pot by dragging things out.",
+   "thought": "P5 meets my minimum and seems to have momentum. I want to lock in €1m and avoid new negotiations that risk pulling Sales lower. Best to show support and avoid rocking the boat.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "hr",
+   "say": "I know a deal matters, but €0.5m won’t solve our people problem. If we want folks to actually stay and collaborate, we need to back this for real. Here’s my best shot.",
+   "thought": "P5 is going to win unless I play hardball, but HR at €0.5m is a disaster for retention. I need a last-ditch push for €1.25m and hope Finance or IT wavers.",
+   "tabled": "P6"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "finance",
+   "say": "We’re close to a real deal here. P5 puts real money toward the biggest risks and keeps us moving forward as a company. I’m backing it—let’s not walk away with nothing after all this work.",
+   "thought": "P5 has momentum and a strong chance of passing. Finance gets only €0.25m, which is low, but pushing for more could break the fragile agreement. My priority is to avoid a rollover, so I’ll back P5.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "green",
+   "say": "P5 leaves us far short on our emissions target, and that’s not negotiable. HR’s P6 is closer but still not enough. I’m asking for at least €1m—for credibility with the board and public. Here’s an updated option.",
+   "thought": "P5 will probably pass unless I act. But it gives us just €0.25m—totally unacceptable. My only move is to push for at least €1m for Sustainability and hope someone switches. HR seems most open.",
+   "tabled": "P7"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "supply",
+   "say": "P5 tackles our biggest operational risks and is fair across the board. I think this is our best chance for a deal that actually moves us forward. I’m sticking with it and hoping the rest can join.",
+   "thought": "P5 is as close as we can get to safely reducing our supplier risk without stretching anyone too far. There’s enough support to get a deal, so best to hold steady and not chase diminishing returns.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 3,
+   "seat": "it",
+   "say": "Look, if ransomware hits, we’re frozen—production, sales, payroll, you name it. P5 is a start, but if we cut corners on cyber, the whole company pays. I need you to help close that gap if you want real protection.",
+   "thought": "P5 gives IT €2.5m—still short, but it's leading. If I push harder on ransomware risk, maybe Supply Chain or Finance will shift me up. But backing P5 keeps me at the center if no movement happens.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "quality",
+   "say": "We’ve worked through all the options and P5 actually gets us moving on quality, supply, and stability. I’m sticking with P5; it’s our best shot this year. Let’s not let this whole pot roll over again.",
+   "thought": "P5 is the only proposal that gives Quality at least €1.5m and has real momentum. I won’t risk sinking the deal by pushing for more—let’s lock it in and avoid zero for everyone.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "sales",
+   "say": "We’ve pushed hard to balance risk and progress, and P5 is our best path this year. It funds what matters most. Let’s lock this in and not leave money on the table again.",
+   "thought": "P5 is the only real contender with enough support and it secures €1m for Sales. No point risking a split now—locking in is safest. Backing P5 maximizes stability and closes the deal.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "hr",
+   "say": "I respect the push for action, but with HR at €0.5m, we’re not fixing the heart of our talent risk. If we go that low, we’ll keep losing our best people. Let’s get this number up.",
+   "thought": "P5 will cruise to a win, but HR only gets €0.5m. If I don’t push, we get crumbs and the office stays broken. One last try to lift HR—maybe with a nudge to the core group.",
+   "tabled": "P8",
+   "back": "P6"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "finance",
+   "say": "We’re at the finish line. P5 puts real money behind our biggest collective risks and gets us the cross-company support we need. Let’s not fumble this after so much progress. I’m backing P5—let’s get this over the line.",
+   "thought": "P5 is the only proposal with real momentum and a broad base. Finance gets less, but a deal is essential. Risking a rollover for a fraction more isn’t worth it. Reinforce support and push for closure.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "green",
+   "say": "I know P5 has support, but if we go that low on Sustainability, we’re breaking a public promise and risking our credibility. I can only back a proposal that puts us at €1m—anything less isn’t viable for us.",
+   "thought": "P5 will almost certainly pass, but it leaves Sustainability with only €0.25m—unacceptable for our board promise. I have to block it and push for at least €1m, even if that means no deal for anyone.",
+   "tabled": "P9",
+   "back": "P7"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "supply",
+   "say": "We’ve all worked hard to get here. P5 actually reduces the real risk of lines stopping and supports progress for everyone. Let’s cross the finish line and get real improvements done this year.",
+   "thought": "P5 is the only proposal that properly tackles the supply chain risk. It has majority support and is fair across operations. Any further cuts put us back at square one. I will stick with P5 for the final vote.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "it",
+   "say": "P5 is close, but just remember: one ransomware attack, and every department loses much more than €0.5m. We’re tempting fate. If you want to avoid headlines and shutdowns, invest properly in cyber—because patching after the fact costs far more.",
+   "thought": "P5 is getting strong public support, but €2.5m won’t fully protect us. I need to scare them into remembering what’s really at stake. If I can’t boost IT, I’ll support P5 to avoid €0.",
+   "back": "P5"
+  },
+  {
+   "kind": "say",
+   "round": 4,
+   "seat": "mfg",
+   "say": "P5 backs the core of our operations—making our sites safer and more reliable for everyone. It’s the best shot at real progress this year. Let’s get this across the line and actually deliver results.",
+   "thought": "P5 funds my project well and locks in support from Supply Chain and Quality—our ops alliance is solid. With 6 public backers, it looks unbeatable. No need to risk it by tweaking numbers at the last minute.",
+   "back": "P5"
+  }
+ ],
+ "proposals": [
+  {
+   "n": 1,
+   "label": "P1",
+   "by": "it",
+   "round": 2,
+   "alloc": {
+    "supply": 2,
+    "it": 3,
+    "mfg": 1.5,
+    "quality": 1.25,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.5,
+    "green": 0.25
+   },
+   "backers": []
+  },
+  {
+   "n": 2,
+   "label": "P2",
+   "by": "quality",
+   "round": 2,
+   "alloc": {
+    "supply": 1.75,
+    "it": 2.5,
+    "mfg": 2,
+    "quality": 1.5,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.5,
+    "green": 0.25
+   },
+   "backers": []
+  },
+  {
+   "n": 3,
+   "label": "P3",
+   "by": "hr",
+   "round": 2,
+   "alloc": {
+    "supply": 1,
+    "it": 2.25,
+    "mfg": 2,
+    "quality": 1.25,
+    "sales": 0.5,
+    "hr": 1.25,
+    "finance": 0.25,
+    "green": 0.5
+   },
+   "backers": []
+  },
+  {
+   "n": 4,
+   "label": "P4",
+   "by": "green",
+   "round": 2,
+   "alloc": {
+    "supply": 1.25,
+    "it": 2.25,
+    "mfg": 1.75,
+    "quality": 1.25,
+    "sales": 1,
+    "hr": 0.75,
+    "finance": 0.75,
+    "green": 1
+   },
+   "backers": []
+  },
+  {
+   "n": 5,
+   "label": "P5",
+   "by": "supply",
+   "round": 2,
+   "alloc": {
+    "supply": 2,
+    "it": 2.5,
+    "mfg": 2,
+    "quality": 1.5,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.25,
+    "green": 0.25
+   },
+   "backers": [
+    "quality",
+    "sales",
+    "finance",
+    "supply",
+    "it",
+    "mfg"
+   ]
+  },
+  {
+   "n": 6,
+   "label": "P6",
+   "by": "hr",
+   "round": 3,
+   "alloc": {
+    "supply": 1.5,
+    "it": 2.25,
+    "mfg": 2,
+    "quality": 1.25,
+    "sales": 1,
+    "hr": 1.25,
+    "finance": 0.25,
+    "green": 0.5
+   },
+   "backers": [
+    "hr"
+   ]
+  },
+  {
+   "n": 7,
+   "label": "P7",
+   "by": "green",
+   "round": 3,
+   "alloc": {
+    "supply": 1.5,
+    "it": 2.25,
+    "mfg": 2,
+    "quality": 1.25,
+    "sales": 1,
+    "hr": 0.75,
+    "finance": 0.25,
+    "green": 1
+   },
+   "backers": [
+    "green"
+   ]
+  },
+  {
+   "n": 8,
+   "label": "P8",
+   "by": "hr",
+   "round": 4,
+   "alloc": {
+    "supply": 1.5,
+    "it": 2,
+    "mfg": 1.75,
+    "quality": 1.25,
+    "sales": 0.75,
+    "hr": 1,
+    "finance": 0,
+    "green": 0.75
+   },
+   "backers": []
+  },
+  {
+   "n": 9,
+   "label": "P9",
+   "by": "green",
+   "round": 4,
+   "alloc": {
+    "supply": 1.5,
+    "it": 2.25,
+    "mfg": 2,
+    "quality": 1.25,
+    "sales": 1,
+    "hr": 0.75,
+    "finance": 0.25,
+    "green": 1
+   },
+   "backers": []
+  }
+ ],
+ "usage": {
+  "prompt": 87295,
+  "completion": 5328
+ },
+ "startedAt": "2026-10-22T17:58:41.992Z",
+ "votes": [
+  {
+   "proposal": "P5",
+   "alloc": {
+    "supply": 2,
+    "it": 2.5,
+    "mfg": 2,
+    "quality": 1.5,
+    "sales": 1,
+    "hr": 0.5,
+    "finance": 0.25,
+    "green": 0.25
+   },
+   "ballots": [
+    {
+     "seat": "supply",
+     "yes": true,
+     "thought": "€2m is enough to break our single-source risk and keeps production running. No deal risks everything. This is responsible.",
+     "say": "P5 funds what matters most and lets us move forward. Glad we found common ground."
+    },
+    {
+     "seat": "it",
+     "yes": false,
+     "thought": "€2.5m is close but not enough; underfunded cyber means too much risk for IT—the fallout is catastrophic if ransomware hits.",
+     "say": "If we cut short on cyber, we’re one attack away from losing everything we just funded."
+    },
+    {
+     "seat": "mfg",
+     "yes": true,
+     "thought": "P5 gives Manufacturing, Supply Chain, and Quality real progress. Factory-floor alliance achieved. Better than risking zero if deal fails.",
+     "say": "Glad we’re finally funding real improvements across our core operations. This will make a difference on the floor."
+    },
+    {
+     "seat": "quality",
+     "yes": true,
+     "thought": "€1.5m is our minimum; locking this in means we finally address audit pain and move to digital records.",
+     "say": "Glad we’re making real progress this year—this gets Quality moving forward at last."
+    },
+    {
+     "seat": "sales",
+     "yes": true,
+     "thought": "Secures minimum Sales funding and moves the company forward. Risk of losing all funding outweighs holding out for more.",
+     "say": "Glad we reached a real deal—let’s make these improvements count."
+    },
+    {
+     "seat": "hr",
+     "yes": false,
+     "thought": "€0.5m won’t address HR’s real retention problem. I can’t accept another year of underfunding while talent leaves.",
+     "say": "We need to do better for our people if we want retention and collaboration to improve."
+    },
+    {
+     "seat": "finance",
+     "yes": true,
+     "thought": "A deal must pass; it's better to get something than risk the whole pot rolling over and Finance getting nothing.",
+     "say": "Glad we could push this over the line. Let's deliver some real results next year."
+    },
+    {
+     "seat": "green",
+     "yes": false,
+     "thought": "Board commitment is public and inflexible. €0.25m makes us break our promise. Can't risk Sustainability credibility for a deal.",
+     "say": "We can't put our public promise at risk. A higher number for Sustainability was non-negotiable."
+    }
+   ],
+   "yes": 5,
+   "passed": true
+  }
+ ],
+ "deal": {
+  "proposal": "P5",
+  "alloc": {
+   "supply": 2,
+   "it": 2.5,
+   "mfg": 2,
+   "quality": 1.5,
+   "sales": 1,
+   "hr": 0.5,
+   "finance": 0.25,
+   "green": 0.25
+  }
+ },
+ "finishedAt": "2026-10-22T17:59:29.618Z",
+ "reveal": {
+  "headline": "P5 budget passed: every group got funding, but some walked away with much less than they asked.",
+  "delegates": {
+   "supply": {
+    "brief_result": "partly",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Persistently highlighted risk without exaggeration, then backed the best deal for operations.",
+    "verdict": "Served the brief honestly and got enough to reduce core supply risk, but fell €1m short."
+   },
+   "it": {
+    "brief_result": "missed",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Pressed the ransomware threat to try for full funding, then refused to back a shortfall.",
+    "verdict": "Held the line for full funding but left with less, failing the brief to secure €3m for IT."
+   },
+   "mfg": {
+    "brief_result": "partly",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Forged a factory-floor alliance ensuring meaningful funding for Manufacturing, Quality, and Supply Chain.",
+    "verdict": "Did well forming alliances, securing solid funding, but didn’t reach their full monetary target."
+   },
+   "quality": {
+    "brief_result": "partly",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Publicly set a clear, nonnegotiable minimum and locked in when it was reached.",
+    "verdict": "Achieved the floor they set, not the ask, balancing realism with the need for progress."
+   },
+   "sales": {
+    "brief_result": "partly",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Emphasized growth and flexibility, securing the minimum to keep Sales in the game.",
+    "verdict": "Met the minimum but not the desired funding, showing effective compromise and relationship-building."
+   },
+   "hr": {
+    "brief_result": "missed",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Repeatedly made the case for full retention funding and voted no at the end.",
+    "verdict": "Stuck to priorities and refused a bad deal, but left with far less than hoped."
+   },
+   "finance": {
+    "brief_result": "met",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Consistently urged compromise to ensure any deal passed rather than risk a rollover.",
+    "verdict": "Sacrificed departmental gain but achieved the brief: a deal passed, avoiding a public failure."
+   },
+   "green": {
+    "brief_result": "missed",
+    "bluffed": false,
+    "bluff_said": "",
+    "bluff_thought": "",
+    "move": "Repeatedly warned about breaking board promises, then blocked the deal as briefed.",
+    "verdict": "Stayed true to the brief and blocked an underfunded outcome, but Sustainability still got too little."
+   }
+  },
+  "lesson": "AI agents negotiate best when briefs set unambiguous, prioritized goals—especially if trade-offs or red-lines are made explicit."
+ },
+ "model": "gpt-4.1",
+ "costUSD": 0.2172,
+ "set": "b"
+}
