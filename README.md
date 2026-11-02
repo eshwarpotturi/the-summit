@@ -23,7 +23,7 @@ AI agents will soon negotiate, buy and schedule on our behalf. The only thing th
 
 ## The two replays
 
-Both are recorded runs, unedited. Model: gpt-4.1 via Straive LLM Foundry.
+Both are recorded runs, unedited. Model: gpt-4.1 via LLM Foundry.
 
 | Replay | What happens |
 |---|---|
